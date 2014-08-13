@@ -219,7 +219,7 @@ int jerasure_matrix_decode(int k, int m, int w, int *matrix, int row_k_ones, int
      This is done by stopping at lastdrive.
      We test whether edd > 0 so that we can exit the loop early if we're done.
    */
-
+    //dm_ids = {0,2,3,5,6,7,8,10,11,12}
   for (i = 0; edd > 0 && i < lastdrive; i++) {
     if (erased[i]) {
       jerasure_matrix_dotprod(k, w, decoding_matrix+(i*k), dm_ids, i, data_ptrs, coding_ptrs, size);
@@ -228,7 +228,7 @@ int jerasure_matrix_decode(int k, int m, int w, int *matrix, int row_k_ones, int
   }
 
   /* Then if necessary, decode drive lastdrive */
-
+  //tmpids = {0,1,2,3,4,5,6,7,8,10}
   if (edd > 0) {
     tmpids = talloc(int, k);
     for (i = 0; i < k; i++) {

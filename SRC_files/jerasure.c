@@ -379,6 +379,7 @@ void jerasure_matrix_dotprod(int k, int w, int *matrix_row,
             {
                 sptr = coding_ptrs[src_ids[i]-k];
             }
+
             if (init == 0)
             {
                 memcpy(dptr, sptr, size);
@@ -410,6 +411,7 @@ void jerasure_matrix_dotprod(int k, int w, int *matrix_row,
             {
                 sptr = coding_ptrs[src_ids[i]-k];
             }
+
             switch (w)
             {
             case 8:

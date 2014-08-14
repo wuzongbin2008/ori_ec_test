@@ -89,7 +89,6 @@ int main (int argc, char **argv)
     int size, newsize;			// size of file and temp size
     struct stat status;			// finding file size
 
-
     enum Coding_Technique tech;		// coding technique (parameter)
     int k, m, w, packetsize;		// parameters
     int buffersize;					// paramter
@@ -660,7 +659,6 @@ int main (int argc, char **argv)
         fprintf(fp2, "%d\n", readins);
         fclose(fp2);
     }
-
 
     /* Free allocated memory */
     free(s2);

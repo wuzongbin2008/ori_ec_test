@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../SRC_files/cauchy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../SRC_files/cauchy.h" />
 		<Unit filename="../SRC_files/encoder.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -42,6 +46,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../SRC_files/jerasure.h" />
+		<Unit filename="../SRC_files/liberation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../SRC_files/liberation.h" />
+		<Unit filename="../SRC_files/reed_sol.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../SRC_files/reed_sol.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

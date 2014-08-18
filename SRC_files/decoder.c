@@ -101,7 +101,6 @@ int main (int argc, char **argv)
     double tsec;
     double totalsec;
 
-
     signal(SIGQUIT, ctrl_bs_handler);
 
     matrix = NULL;

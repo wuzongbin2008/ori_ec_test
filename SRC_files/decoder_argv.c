@@ -170,7 +170,6 @@ int main (int argc, char **argv)
     for (i = 0; i < k+m; i++)
         erased[i] = 0;
     erasures = (int *)malloc(sizeof(int)*(k+m));
-
     data = (char **)malloc(sizeof(char *)*k);
     coding = (char **)malloc(sizeof(char *)*m);
     if (buffersize != origsize)
@@ -230,37 +229,51 @@ int main (int argc, char **argv)
     /* Begin decoding process */
     total = 0;
     n = 1;
+    blocksize = 32;
     while (n <= readins)
     {
         numerased = 0;
         /* Open files, check for erasures, read in data/coding */
         for (i = 1; i <= k; i++)
         {
-            sprintf(fname, "%s/Coding/%s_k%0*d%s", curdir, cs1, md, i, cs2);
-            fp = fopen(fname, "rb");
-            if (fp == NULL)
+            if(i == 1 || i == 2)
             {
                 erased[i-1] = 1;
                 erasures[numerased] = i-1;
                 numerased++;
-                //printf("%s failed\n", fname);
             }
             else
             {
-                if (buffersize == origsize)
-                {
-                    stat(fname, &status);
-                    blocksize = status.st_size;
-                    data[i-1] = (char *)malloc(sizeof(char)*blocksize);
-                    fread(data[i-1], sizeof(char), blocksize, fp);
-                }
-                else
-                {
-                    fseek(fp, blocksize*(n-1), SEEK_SET);
-                    fread(data[i-1], sizeof(char), buffersize/k, fp);
-                }
-                fclose(fp);
+                data[i-1] = calloc(blocksize,sizeof(char));
             }
+
+            //origin
+//            sprintf(fname, "%s/Coding/%s_k%0*d%s", curdir, cs1, md, i, cs2);
+//            fp = fopen(fname, "rb");
+//            if (fp == NULL)
+//            {
+//                erased[i-1] = 1;
+//                erasures[numerased] = i-1;
+//                numerased++;
+//                //printf("%s failed\n", fname);
+//            }
+//            else
+//            {
+//                if (buffersize == origsize)
+//                {
+//                    stat(fname, &status);
+//                    blocksize = status.st_size;
+//                    data[i-1] = (char *)malloc(sizeof(char)*blocksize);
+//                    fread(data[i-1], sizeof(char), blocksize, fp);
+//                }
+//                else
+//                {
+//                    fseek(fp, blocksize*(n-1), SEEK_SET);
+//                    fread(data[i-1], sizeof(char), buffersize/k, fp);
+//                }
+//                fclose(fp);
+//            }
+
         }
         for (i = 1; i <= m; i++)
         {
@@ -290,6 +303,7 @@ int main (int argc, char **argv)
                 fclose(fp);
             }
         }
+
         /* Finish allocating data/coding if needed */
         if (n == 1)
         {
@@ -366,6 +380,7 @@ int main (int argc, char **argv)
                 }
             }
         }
+
         n++;
         fclose(fp);
         tsec = 0.0;

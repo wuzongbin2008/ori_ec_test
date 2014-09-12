@@ -363,6 +363,7 @@ int main (int argc, char **argv)
     //Get size of file
     if (argv[1][0] != '-')
     {
+
         /* Open file and error check */
         fp = fopen(argv[1], "rb");
         if (fp == NULL)
@@ -475,6 +476,8 @@ int main (int argc, char **argv)
     sprintf(temp, "%d", k);
     md = strlen(temp);
 
+    blocksize = 32;
+
     /* Allocate data and coding */
     data = (char **)malloc(sizeof(char*)*k);
     coding = (char **)malloc(sizeof(char*)*m);
@@ -553,10 +556,17 @@ int main (int argc, char **argv)
         }
 
 
-        /* Set pointers to point to file data */
         for (i = 0; i < k; i++)
         {
-            data[i] = block+(i*blocksize);
+            data[i] = ( char  *)calloc(blocksize,sizeof( char ));
+            if(i==0)
+            {
+                data[i] = "abcdefghij";
+            }
+            if(i==1)
+            {
+                data[i] = "klmnopqrst";
+            }
         }
 
         gettimeofday(&t3, &tz);
@@ -631,6 +641,7 @@ int main (int argc, char **argv)
                     fp2 = fopen(fname, "ab");
                 }
                 fwrite(coding[i-1], sizeof(char), blocksize, fp2);
+                printf("coding[%d] = %s\n\n",i,coding[i-1]);
                 fclose(fp2);
             }
         }

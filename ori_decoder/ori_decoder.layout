@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="../SRC_files/galois.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11329" topLine="401" />
+		</Cursor>
+	</File>
+	<File name="../SRC_files/decoder.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6536" topLine="324" />
+		</Cursor>
+		<Folding>
+			<Collapse line="0" />
+			<Collapse line="27" />
+			<Collapse line="176" />
+		</Folding>
+	</File>
+	<File name="../SRC_files/jerasure.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6264" topLine="109" />
+		</Cursor>
+		<Folding>
+			<Collapse line="0" />
+			<Collapse line="27" />
+			<Collapse line="46" />
+			<Collapse line="53" />
+			<Collapse line="57" />
+			<Collapse line="64" />
+			<Collapse line="66" />
+			<Collapse line="75" />
+			<Collapse line="79" />
+			<Collapse line="82" />
+			<Collapse line="91" />
+			<Collapse line="96" />
+			<Collapse line="98" />
+			<Collapse line="106" />
+			<Collapse line="110" />
+			<Collapse line="112" />
+			<Collapse line="117" />
+			<Collapse line="119" />
+			<Collapse line="205" />
+			<Collapse line="223" />
+			<Collapse line="248" />
+			<Collapse line="278" />
+		</Folding>
+	</File>
+</CodeBlocks_layout_file>
